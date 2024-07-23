@@ -6,7 +6,8 @@ NSGs can filter based on:
 - Destintation and Destination Port
 - Source and Source Port
 - Protocol
-- Inbound or Outbound
+
+Rules can be applied either Inbound or Outbound
 
 ## NSG Priority
 NSGs use priority to process the rules, lower the priority numbers win.
