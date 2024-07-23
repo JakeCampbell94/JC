@@ -11,7 +11,7 @@ NSGs can filter based on:
 ## NSG Priority
 NSGs use priority to process the rules, lower the priority numbers win.
 - Priority can be a value between 100 and 4096
-- You can't have two rules with the same priority and direction (You could have two rules withe the same priority but one is for inbound and the other for outbound)
+- You can't have two rules with the same priority and direction (You could have two rules with the same priority but one is for inbound and the other for outbound)
 
 ## Default NSG Rules
 By default, Azure will create the following rules:
