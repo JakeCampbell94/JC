@@ -32,3 +32,7 @@ By default, Azure will create the following rules:
 | DenyAllOutbound | 65500 | 0.0.0.0/0 | 0-65535 | 0.0.0.0/0 | 0-65535 | Any | Deny |
 
 
+## Routing Behaviours with NSGs
+NSGs can be applied to NICs and VNETs which will hav an affect on how the rules are processed and the order.
+- If there is an NSG linked to the VNET, inbound traffic to that VNET will hit that first and be processed.
+
