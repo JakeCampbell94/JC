@@ -16,5 +16,19 @@ NSGs use priority to process the rules, lower the priority numbers win.
 ## Default NSG Rules
 By default, Azure will create the following rules:
 ### Default Inbound Rules
-AllowVNetInBound, Priority 65000, Source VirtualNetwork, Source Ports 0-65535, Destination VirtualNetwork, Destiantion Ports 0-65535, Protocol Any, Acess Allow
+
+| Rule | Priority | Source | Source Ports | Destination | Destination Ports | Protocol | Access |
+| ---|---|---|---|---|---|---|---|
+| AllowVNetInBound | 65000 | VirtualNetwork | 0-65535 | VirtualNetwork | 0-65535 | Any | Allow |
+| AllowAzureLoadBalancerInBound | 65001 | AzureLoadBalancer | 0-65535 | 0.0.0.0/0 | 0-65535 | Any | Allow |
+| DenyAllInbound | 65500 | 0.0.0.0/0 | 0-65535 | 0.0.0.0/0 | 0-65535 | Any | Deny |
+
+### Default Outbound Rules
+
+| Rule | Priority | Source | Source Ports | Destination | Destination Ports | Protocol | Access |
+| ---|---|---|---|---|---|---|---|
+| AllowVNetOutBound | 65000 | VirtualNetwork | 0-65535 | VirtualNetwork | 0-65535 | Any | Allow |
+| AllowInternetOutBound | 65001 | 0.0.0.0/0 | 0-65535 | Internet | 0-65535 | Any | Allow |
+| DenyAllOutbound | 65500 | 0.0.0.0/0 | 0-65535 | 0.0.0.0/0 | 0-65535 | Any | Deny |
+
 
