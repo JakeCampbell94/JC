@@ -22,6 +22,11 @@ NSGs use priority to process the rules, lower the priority numbers win.
 - Priority can be a value between 100 and 4096
 - You can't have two rules with the same priority and direction (You could have two rules with the same priority but one is for inbound and the other for outbound)
 
+## Routing Behaviours with NSGs
+NSGs can be applied to NICs and VNETs, Microsoft recommend using one or the other and not both. For inbound traffic, NSGs associated to the VNET are processed first, if allowed then it will reach the VMs within where it may hit a second NSG associated to the VM where the traffic is processed against for a second time. Outbound traffic from a VM will be processed by the NSG associated with the VM's NIC and then secondly by the VNET's NSG if the intial NSG allows it through. 
+
+Inter-VNET traffic can be affected if you were to create a rule in your NSG associated with the subnet to block all communication that can then stop the VMs within the subnet reaching one another. You can use the effective routes in the NIC overview, Network Watcher and Cnnection Troubelshooter to spot any dodgy rules causing routing issues.
+
 ## Default NSG Rules
 By default, Azure will create the following rules:
 ### Default Inbound Rules
@@ -39,9 +44,4 @@ By default, Azure will create the following rules:
 | AllowVNetOutBound | 65000 | VirtualNetwork | 0-65535 | VirtualNetwork | 0-65535 | Any | Allow |
 | AllowInternetOutBound | 65001 | 0.0.0.0/0 | 0-65535 | Internet | 0-65535 | Any | Allow |
 | DenyAllOutbound | 65500 | 0.0.0.0/0 | 0-65535 | 0.0.0.0/0 | 0-65535 | Any | Deny |
-
-
-## Routing Behaviours with NSGs
-NSGs can be applied to NICs and VNETs which will hav an affect on how the rules are processed and the order.
-- If there is an NSG linked to the VNET, inbound traffic to that VNET will hit that first and be processed.
 
