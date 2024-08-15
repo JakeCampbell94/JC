@@ -3,6 +3,7 @@ VNets are allow you to create subnets for your resources to work within. You can
 - VNets work at layer 3 and 4 so you will see TCP, UDP, ICMP for example but no layer 2 concepts like broadcasts.
 - VNets are regional and can be used with availablilty zones in specific regions.
 - VNet names must be unique within a resource group, you can technically have two different VNets named "MyVnet" if both are part of seperate resource groups (Obviously don't name VNets the same thing though)
+- You can connect VNets to other VNets in different regions or subscriptions.
 
 ### Blocked Traffic in VNets
 There are some stuff blocked in VNets by Azure:
@@ -19,6 +20,7 @@ When creating a VNet, you define at least one address space and within that you 
 - You can have multiple address ranges in a VNet and those spaces can have subnets too, say run both 10.10.0.0/16 and 192.168.0.0/16 in once VNet.
 - You can use the usual RFC 1918 ranges plus 100.64.0.0/10 reserved in RFC 6598 and Azure will treat it as a private range.
 - Azure uses /64 for your IPv6 subnets
+- Some Azure services need a dedicated subnet
 
 ### Reserved Addresses and Blocked Ranges
 Each subnet will have 5 addresses reserved from the get go:
@@ -33,4 +35,3 @@ Specific ranges are blocked from being used:
 - Loopback (127.0.0.0/8)
 - Link-Local (169.254.0.0/16)
 - Internal DNS (168.63.129.16/32)
-- 
