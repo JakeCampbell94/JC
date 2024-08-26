@@ -1,0 +1,9 @@
+# Web Application Firewall (WAF)
+Exam Topics
+- Map requirements to features and capabilities of WAF
+- Design a WAF deployment
+- Configure detection or prevention mode
+- Configure rule sets for WAF on Azure Front Door
+- Configure rule sets for WAF on Application Gateway
+- Implement a WAF policy
+- Associate a WAF policy
